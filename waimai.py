@@ -1,22 +1,8 @@
-import requests
+﻿import requests
 import json
 import time
 import re
 import pymysql
-# import geohash2
-
-
-#使用百度api获取经纬度
-# a_url =r'http://api.map.baidu.com/?qt=s&c=131&wd=%E8%BF%9E%E6%B1%9F%E4%B8%87%E5%AE%B6%E5%9F%8E%E5%B8%82%E5%B9%BF%E5%9C%BA&fromproduct=jsapi&res=api&callback=BMap._rd._cbk45520'
-# res = requests.get(a_url).text
-#
-# rc = re.compile(r'.*\"street_id\":"(.*?)\"')
-# rcs = rc.findall(res)
-# # re_json = json.loads(rcs[0],encoding='utf8')
-# print(rcs[0])
-# result = geohash2.decode('11525643830619053144')
-# # result = geohash2.encode(26.216951,119.541368)
-# print(result)
 
 
 #获取地点经纬度
@@ -55,12 +41,7 @@ def get_restaurants(longitude,latitude,page):
 
     header = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
-        'Cookie':'ubt_ssid=49lfrco993xvbgk1o8ndd6821op53sgo_2019-02-18; '
-                 'perf_ssid=n041w5merbcy6eok6uvf4hg20n5wg9nq_2019-02-18; '
-                 '_utrace=1cbec626f80b0ce5422997a6e82bec72_2019-02-18; cna=PGnxFP1O3EYCAXTi8byHT8GK;'
-                 'track_id=1550482264|d93dbb275207cb93d999619374526cd6af4e8e0f3690b5071f|fe40d08ba2cd66cad09076e366592ee5; '
-                 'USERID=78018088; UTUSER=78018088; SID=c8bhZ2wS6hzSQIsy5pyv9k0vutn2Pcun3oXg; '
-                 'isg=BL29VtwivbYVyRnalIxaCE0lzBl38s_to_bgMH8BjJVdttXoVavRfWkvZOrwNglk',
+        'Cookie':'这里需要cookie'
 
     }
 
@@ -145,7 +126,7 @@ if __name__ == '__main__':
 
     checkad = input('请输入城市名称')
     address = input('请输入地点 eg:xxx县xxx小区')
-    x,y = u_place('连江','连江县万家城市广场')
+    x,y = u_place(checkad,address)
     count = get_shop_count(x,y)
 
     #总页数
@@ -158,7 +139,7 @@ if __name__ == '__main__':
         r = get_restaurants(x,y,p)
         for j in get_data(r,checkad):
             print(j)
-            # add_to_data(j)
+            add_to_data(j)
             add_to_csv(j)
         time.sleep(1)
 
