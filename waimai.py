@@ -41,7 +41,7 @@ def get_restaurants(longitude,latitude,page):
 
     header = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
-        'Cookie':'这里需要cookie'
+        'Cookie':'这里填入cookie值',
 
     }
 
@@ -139,7 +139,7 @@ if __name__ == '__main__':
         r = get_restaurants(x,y,p)
         for j in get_data(r,checkad):
             print(j)
-            add_to_data(j)
+            # add_to_data(j)
             add_to_csv(j)
         time.sleep(1)
 
