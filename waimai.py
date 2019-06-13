@@ -61,8 +61,7 @@ def get_shop_count(longitude,latitude):
     }
     headers = {
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36',
-        'Cookie': 'ubt_ssid=49lfrco993xvbgk1o8ndd6821op53sgo_2019-02-18;perf_ssid=n041w5merbcy6eok6uvf4hg20n5wg9nq_2019-02-18;'
-                  '_utrace=1cbec626f80b0ce5422997a6e82bec72_2019-02-18; cna=PGnxFP1O3EYCAXTi8byHT8GK;',
+        'Cookie': '你的cookie值',
     }
 
     resp = requests.get(url=c_url,params=param,headers=headers)
